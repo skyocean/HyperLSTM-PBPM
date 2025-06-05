@@ -57,11 +57,11 @@ If you use this code, please cite the original paper:
 
 ```bibtex
 @article{Wang20205LSTMHyperPBPM,
-        title={Comprehensive Attribute Encoding and Dynamic LSTM HyperModels for Outcome Oriented Predictive Business Process Monitoring}, 
-      author={Fang Wang and Paolo Ceravolo and Ernesto Damiani},
-      year={2025},
-      eprint={2506.03696},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2506.03696}, 
-}```
+         title={Comprehensive Attribute Encoding and Dynamic LSTM HyperModels for Outcome Oriented Predictive Business Process Monitoring}, 
+         author={Fang Wang and Paolo Ceravolo and Ernesto Damiani},
+         year={2025},
+         eprint={2506.03696},
+         archivePrefix={arXiv},
+         primaryClass={cs.LG},
+         url={https://arxiv.org/abs/2506.03696}, 
+}
