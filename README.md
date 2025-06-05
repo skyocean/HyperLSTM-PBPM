@@ -6,8 +6,15 @@
 ---
 
 ## 📖 Overview  
-This repository contains implementations of **attribute encoding techniques** and **LSTM-based HyperModels** for outcome-oriented predictive business process monitoring. The models support both **balanced and imbalanced datasets**, with dynamic embeddings for duration, feature correlations, and text data.
+**[Download Full Paper](https://arxiv.org/abs/2506.03696)**  
+This repository provides implementations of **attribute encoding techniques** and **LSTM-based HyperModels** for outcome-oriented predictive business process monitoring. The models support multiple scenario setups, including:  
 
+- Handling **both balanced and imbalanced datasets**.  
+- Utilizing **pseudo-embedding matrices** for duration and feature correlations.  
+- Supporting **hierarchical inputs** for sequence and event attributes.  
+- Accommodating **simultaneous event inputs**.  
+
+The framework is designed for flexibility and performance across diverse predictive process monitoring tasks.
 ---
 
 ## 🧩 Repository Structure  
@@ -44,23 +51,17 @@ This repository contains implementations of **attribute encoding techniques** an
 
 ---
 
-## 🚀 Quick Start  
-1. **Clone the repository**:  
-   ```bash
-   git clone https://github.com/your-repo-url.git
-   cd your-repo
-
 
 ## 📜 Citation  
 If you use this code, please cite the original paper:  
 
 ```bibtex
-@article{LSTMHyperPBPM2024,
-  title={Comprehensive Attribute Encoding and Dynamic LSTM HyperModels for Outcome-Oriented Predictive Business Process Monitoring},
-  author={Wang, Fang and Ceravolo, Paolo and Damiani, Ernesto},
-  journal={Journal of Business Process Analytics},
-  volume={X},
-  pages={XX--XX},
-  year={2023},
-  publisher={Springer}
+@article{Wang20205LSTMHyperPBPM,
+        title={Comprehensive Attribute Encoding and Dynamic LSTM HyperModels for Outcome Oriented Predictive Business Process Monitoring}, 
+      author={Fang Wang and Paolo Ceravolo and Ernesto Damiani},
+      year={2025},
+      eprint={2506.03696},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2506.03696}, 
 }```
