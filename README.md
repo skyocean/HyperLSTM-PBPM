@@ -1,5 +1,7 @@
 # Comprehensive Attribute Encoding and Dynamic LSTM HyperModels for Predictive Business Process Monitoring
 
+***Predictive Business Process Monitoring (PBPM) research library** featuring LSTM-based HyperModels with advanced attribute embeddings. Designed for real-world enterprise process analytics, this toolkit balances flexibility, performance, and reproducibility.*
+
 **Authors**: Fang Wang (Florence Wong), Paolo Ceravolo, Ernesto Damiani  
 **Repository**: Code and Demos for the associated research article.
 
@@ -49,8 +51,18 @@ The framework is designed for flexibility and performance across diverse predict
 | `BPI12ConcurrLSTM_call.ipynb` | Runs **M-B-LSTM** (balanced dataset demo, adjustable for imbalanced). |
 | `BPI12EmbeddingLSTM_call.ipynb` | Runs **F-D-LSTM** (balanced dataset demo, adjustable for imbalanced). |
 
----
+### 🧠 **Coming Soon: HyperGNN for PBPM**
 
+We are currently finalizing ***a self-tuning HyperModel toolkit based on GCN architectures*** for outcome-oriented predictive business process monitoring (PBPM), extending the current LSTM-based framework.
+Key features include:
+- Multiple **GCN variants** integrated into a **HyperModel** structure with **industrial-scale, self-tuning hyperparameters**.
+- Support for diverse **graph representations** of event sequences with configurable **node- and graph-level attributes**.
+- **Temporal dependencies** encoded via edge weights to capture sequence dynamics.
+- Optimized for prediction **accuracy and stability** across both **balanced and imbalanced datasets**.
+  
+ 📌 Code and preprints will be released upon paper acceptance.
+ 
+---
 
 ## 📜 Citation  
 If you use this code, please cite the original paper:  
@@ -65,3 +77,8 @@ If you use this code, please cite the original paper:
          primaryClass={cs.LG},
          url={https://arxiv.org/abs/2506.03696}, 
 }
+```
+
+## 🔗 **About the Author**
+This repository is maintained by Florence Wong, Ph.D. in Business Analytics and Applied Machine Learning.
+For collaboration, contact via http://www.linkedin.com/in/florence-wong-fw
