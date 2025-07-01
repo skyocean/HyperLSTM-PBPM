@@ -1,6 +1,6 @@
-# Comprehensive Attribute Encoding and Dynamic LSTM HyperModels for Predictive Business Process Monitoring
+# Comprehensive Attribute Encoding and Dynamic LSTM HyperModels for Predictive Process Monitoring
 
-***Predictive Business Process Monitoring (PBPM) research library** featuring LSTM-based HyperModels with advanced attribute embeddings. Designed for real-world enterprise process analytics, this toolkit balances flexibility, performance, and reproducibility.*
+***Predictive Process Monitoring (PPM) research library** featuring LSTM-based HyperModels with advanced attribute embeddings. Designed for real-world predictive process analytics, this toolkit balances flexibility, performance, and reproducibility.*
 
 **Authors**: Fang Wang (Florence Wong), Paolo Ceravolo, Ernesto Damiani  
 **Repository**: Code and Demos for the associated research article.
@@ -9,7 +9,7 @@
 
 ## 📖 Overview  
 **[Download Full Paper](https://arxiv.org/abs/2506.03696)**  
-This repository provides implementations of **attribute encoding techniques** and **LSTM-based HyperModels** for outcome-oriented predictive business process monitoring. The models support multiple scenario setups, including:  
+This repository provides implementations of **attribute encoding techniques** and **LSTM-based HyperModels** for outcome-oriented predictive process monitoring. The models support multiple scenario setups, including:  
 
 - Handling **both balanced and imbalanced datasets**.  
 - Utilizing **pseudo-embedding matrices** for duration and feature correlations.  
