@@ -51,16 +51,19 @@ The framework is designed for flexibility and performance across diverse predict
 | `BPI12ConcurrLSTM_call.ipynb` | Runs **M-B-LSTM** (balanced dataset demo, adjustable for imbalanced). |
 | `BPI12EmbeddingLSTM_call.ipynb` | Runs **F-D-LSTM** (balanced dataset demo, adjustable for imbalanced). |
 
-### 🧠 **Coming Soon: HyperGNN for PBPM**
+### 🔗 Explore More: HyperGNN Toolkit Now Available!
 
-We are currently finalizing ***a self-tuning HyperModel toolkit based on GCN architectures*** for outcome-oriented predictive business process monitoring (PBPM), extending the current LSTM-based framework.
-Key features include:
-- Multiple **GCN variants** integrated into a **HyperModel** structure with **industrial-scale, self-tuning hyperparameters**.
-- Support for diverse **graph representations** of event sequences with configurable **node- and graph-level attributes**.
-- **Temporal dependencies** encoded via edge weights to capture sequence dynamics.
-- Optimized for prediction **accuracy and stability** across both **balanced and imbalanced datasets**.
-  
- 📌 Code and preprints will be released upon paper acceptance.
+The **HyperGNN for Predictive Business Process Monitoring (PBPM)** is now live — extending this LSTM-based framework with a powerful GCN-based alternative.
+
+Key features of the GCN toolkit include:
+- Self-tuning HyperModels built on **GCNConv** and **GraphConv** layers  
+- **Hierarchical input support** for sequence- and event-level attributes  
+- **Duration-aware pseudo-embeddings** and **activity embeddings**  
+- Robust performance across both **balanced and imbalanced** datasets  
+
+📦 Check out the new repo here: **[HGCN (O): A Self-Tuning GCN HyperModel Toolkit for Outcome Prediction](https://github.com/skyocean/HGCN)**  
+📄 [Read the preprint](https://arxiv.org/abs/2507.22524)
+
  
 ---
 
