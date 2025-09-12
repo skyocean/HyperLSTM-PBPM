@@ -2,7 +2,7 @@ import tensorflow as tf
 from tensorflow import keras
 
 from tensorflow.keras.models import Model, Sequential
-from tensorflow.keras.layers import Embedding, LSTM, Dense, Input, Concatenate, Flatten, RepeatVector, Dropout, Masking, BatchNormalization, LeakyReLU, Activation
+from tensorflow.keras.layers import Embedding, LSTM, Dense, Input, Concatenate, Flatten, RepeatVector, Dropout, Masking, BatchNormalization, LeakyReLU, Activation, Layer
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.optimizers import Adam, SGD, RMSprop
 from tensorflow.keras.regularizers import l2
@@ -13,6 +13,18 @@ from tensorflow.keras.optimizers.schedules import ExponentialDecay, InverseTimeD
 import keras_tuner as kt
 from keras_tuner import RandomSearch, HyperModel, Hyperband, HyperParameters
 from tensorflow.keras.metrics import F1Score
+
+# Create a custom layer to remove masks
+class StripMask(Layer):
+    def __init__(self, **kwargs):
+        super(StripMask, self).__init__(**kwargs)
+        self.supports_masking = True
+    
+    def call(self, inputs, mask=None):
+        return inputs
+    
+    def compute_mask(self, inputs, mask=None):
+        return None
 
 class FeatureDurationEmbeddingLSTMModel(HyperModel):
     """A hypermodel for tuning LSTM models with keras-tuner."""
@@ -73,7 +85,7 @@ class FeatureDurationEmbeddingLSTMModel(HyperModel):
             x = Dropout(rate=hp.Float('event_dropout_l' + str(i), 0.2, 0.5))(x)
 
         feature_embedding_input = Input(shape = self.feature_embedding_shape, name='feature_embedding_input')
-        f = feature_embedding_input
+        f = Masking(mask_value=-1.0)(feature_embedding_input)
 
         # LSTM layer configuration
         for k in range(hp.Int('feature_num_lstm_layers', 1, 3)):
@@ -91,7 +103,7 @@ class FeatureDurationEmbeddingLSTMModel(HyperModel):
             f = Dropout(rate=hp.Float('feature_dropout_l' + str(k), 0.2, 0.5))(f)
             
         duration_embedding_input = Input(shape = self.duration_embedding_shape, name='duration_embedding_input')
-        p = duration_embedding_input
+        p = Masking(mask_value=-1.0)(duration_embedding_input)
 
         # LSTM layer configuration
         for m in range(hp.Int('duration_num_lstm_layers', 1, 3)):
@@ -107,6 +119,10 @@ class FeatureDurationEmbeddingLSTMModel(HyperModel):
                     epsilon=hp.Float('duration_batch_norm_epsilon_' + str(m), 1e-5, 1e-2, sampling='LOG')
                 )(p)
             p = Dropout(rate=hp.Float('duration_dropout_l' + str(m), 0.2, 0.5))(p)
+        
+        x = StripMask(name='strip_mask_event')(x)
+        p = StripMask(name='strip_mask_duration')(p)
+        f = StripMask(name='strip_mask_feature')(f)
         
         x = Concatenate()([x, f, p])
         # LSTM layer configuration
@@ -136,7 +152,7 @@ class FeatureDurationEmbeddingLSTMModel(HyperModel):
             # Select activation function
             activation_choice = hp.Choice('dense_activation_' + str(j), ['relu', 'tanh', 'softmax', 'leaky_relu'])
             if activation_choice == 'leaky_relu':
-                x = LeakyReLU(alpha=hp.Float('leaky_alpha_' + str(j), 0.01, 0.3))(x)
+                x = LeakyReLU(negative_slope=hp.Float('leaky_alpha_' + str(j), 0.01, 0.3))(x)
             else:
                 x = Activation(activation_choice)(x)
             x = Dropout(rate=hp.Float('dropout_dense_' + str(j), 0.1, 0.7))(x)
