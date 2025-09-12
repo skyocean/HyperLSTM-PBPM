@@ -23,6 +23,8 @@ The framework is designed for flexibility and performance across diverse predict
 This code has been developed and tested with the following versions:
 - **Python:** 3.11.9
 - **TensorFlow:** 2.16.1
+- **Keras:** 3.11.3
+- **Keras-turner:** 1.4.7
 ---
 ## 🧩 Repository Structure  
 
